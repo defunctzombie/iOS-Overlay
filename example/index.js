@@ -8,8 +8,7 @@ button.addEventListener('click', function() {
     overlay({ text: 'foo', duration: 2000});
 });
 
-button
-// =>
+button // =>
 
 var button = document.createElement('button');
 button.innerHTML = 'Success';
@@ -18,5 +17,4 @@ button.addEventListener('click', function() {
     overlay({ text: 'Success', icon: 'img/check.png', duration: 2000});
 });
 
-button
-// =>
+button // =>
