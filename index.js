@@ -33,13 +33,17 @@ var iosOverlay = function(params) {
 		overlayDOM.innerHTML += '<span class="title">' + settings.text + '</span>';
 
 		if (params.icon) {
-			overlayDOM.innerHTML += '<img src="' + params.icon + '">';
+			if (typeof params.icon == 'string') {
+				overlayDOM.innerHTML += '<img src="' + params.icon + '">';
+			} else {
+				overlayDOM.appendChild(params.icon);
+			}
 		} else if (params.spinner) {
 			overlayDOM.appendChild(params.spinner.el);
 		}
 
 		document.body.appendChild(overlayDOM);
-		
+
 		settings.onbeforeshow();
 
 		// browser glitch so we can properly fade in
