@@ -85,6 +85,11 @@ var iosOverlay = function(params) {
 			}
 			overlayDOM.innerHTML += '<img src="' + params.icon + '">';
 		}
+		if (params.duration) {
+			setTimeout(function() {
+				hide();
+			},params.duration);
+		}
 	};
 
 	return {
