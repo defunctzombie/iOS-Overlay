@@ -82,6 +82,7 @@ var iosOverlay = function(params) {
 		if (params.icon) {
 			if (settings.spinner) {
 				settings.spinner.el.parentNode.removeChild(settings.spinner.el);
+				settings.spinner = null;
 			}
 			overlayDOM.innerHTML += '<img src="' + params.icon + '">';
 		}
