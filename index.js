@@ -3,6 +3,7 @@ var xtend = require('xtend');
 var iosOverlay = function(params) {
 
 	var overlayDOM;
+  var timer;
 	var noop = function() {};
 	var defaults = {
 		onbeforeshow: noop,
@@ -52,7 +53,7 @@ var iosOverlay = function(params) {
 		}, 10);
 
 		if (settings.duration) {
-			setTimeout(function() {
+			timer = setTimeout(function() {
 				hide();
 			},settings.duration);
 		}
@@ -85,6 +86,14 @@ var iosOverlay = function(params) {
 				settings.spinner = null;
 			}
 			overlayDOM.innerHTML += '<img src="' + params.icon + '">';
+		}
+		if (params.duration) {
+			if (timer) {
+				clearTimeout(timer);
+			}
+			timer = setTimeout(function() {
+				hide();
+			},params.duration);
 		}
 	};
 
